@@ -1,0 +1,20 @@
+.backgroundcolor1 {
+    background-color: #FFA500;
+}
+
+.row {
+    padding-bottom: 40px;
+}
+
+.margin {
+    margin-top: auto;
+}
+
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h4 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}

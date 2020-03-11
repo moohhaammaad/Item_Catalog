@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap.min.css') }}">
+    <meta charset="utf-8">
+</head>
+
+<body style="background-color: #2F4F4F">
+
+    <div class="container" style="background-color:#F0E68C">
+        <div class="row text-center initialism">
+            <h1> RESTAURANTS ⛾ </h1>
+            <p><strong> choose your favourite restaurant to show all of its menu items </p>
+</div>
+
+<!--MESSAGE FLASHING -->
+        {% with messages = get_flashed_messages() %} {% if messages %}
+
+        <ul>
+            {% for message in messages %}
+            <li>
+                <h1>{{message}}</h1></li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %} {% for r in restaurants %}
+        <!--logical code-->
+</div>
+
+<div class="row center-block lead" style="margin-left: 190px;">
+         <a href='{{url_for('restaurantMenu', restaurant_id = r.id) }}'> <h3 style="color: #00FFFF">- {{r.name}} </h3> </a> 
+        <br>
+</div>
+
+        {% endfor %}
+
+</body>
+</html>

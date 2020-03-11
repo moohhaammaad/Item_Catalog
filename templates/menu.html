@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- link to the style file-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap.min.css') }}">
+    <meta charset="utf-8">
+    <title>Restaurant menu</title>
+</head>
+
+<body style="background-color:#008B8B">
+    <div class="container" style="background-color:#2F4F4F">
+        <div class="row backgroundcolor1 text-center text-uppercase">
+            <h1>{{restaurant.name}}⛾ 👍</h1>
+            <div style="text-align: center;">
+                <a href='{{url_for('newMenuItem', restaurant_id = restaurant.id) }}'>
+                    <div class="margin">
+                        <button type="button" autofocus style="height:50px;width:150px"> <strong>Add New Item ⧾</strong> </button>
+                </a>
+                <a href='{{url_for('gdisconnect') }}'>
+                    <p style="text-align: right; margin-right: 20px;color: #483D8B; font-size: 18px;"> <strong> Sign out from Gmail </strong> </p>
+                </a>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!--MESSAGE FLASHING -->
+        {% with messages = get_flashed_messages() %} {% if messages %}
+
+        <ul>
+            {% for message in messages %}
+            <li>
+                <h1>{{message}}</h1></li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %} {% for i in items %}
+        <!--logical code-->
+
+        <div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        <h2 style="margin-left: 40px;"> <mark> - {{i.name}} </mark> </h2> </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <h3> <mark> {{i.price}} </mark> </h3> </p>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <dd>
+                        <h4 style="color: #33FFFF; font-weight: bold"> ( {{i.description}} ) </h4></dd>
+                </li>
+            </ul>
+
+            <div style="text-align: right;">
+                <a href='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                    <button type="button" style="height:32px;width:100px; margin-right: 15px;"> Edit </button>
+                </a>
+                <!-- Go to edit page -->
+                <a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                    <button type="button" style="height:32px;width:100px"> Delete </button>
+                </a>
+                <!-- Go to delete page -->
+            </div>
+            <hr>
+        </div>
+        {% endfor %}
+        <!--logical code-->
+    </div>
+</body>
+
+</html>
