@@ -79,7 +79,7 @@ Bugs and errors
 ---------------
 if you have any error please make sure you have all of the prerequisites and followed the
 guidelines correctly. if you still facing a problem contact with us 
-on this mail : `midomedo33@gmail.com `
+on this mail : `mohamedahmed.mmes@gmail.com `
 
 
 Built With 
